@@ -71,7 +71,8 @@ const Upvote = styled.button`
   height: 7vh;
   margin-right: -1em;
   background: ${Colors.White};
-  border-radius: 12px;
+  border-color: ${Colors.White};
+  border-radius: 20px;
 `
 
 export const Container = styled.div`
