@@ -1,49 +1,67 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { Colors } from './Theme';
+import { Colors } from './Themes';
 
-const GlobalStyle = createGlobalStyle`
-    #root {
-        font-size: 60%;
-    }
+interface Props {
+    ignore: string;
+}
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+const GlobalStyle = createGlobalStyle<Props>`
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-    body {
-        background: ${Colors.LightGray};
-    }
+  #root {
+    font-size: 60%;
+  }
 
-    html, body, #root {
-        height: 100vh;
-    }
+  #root :not(:${p => p.ignore}) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    #root {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
 
-    body,
-    input,
-    button,
-    textarea {
-        font: 500 1.6rem;
-    }
+  html {
+    overflow: scroll;
+    overflow-x: hidden;
+  }
 
-    .container {
-        width: 90vw;
-        max-width: 700px;
-    }
+  body {
+      font-family: 'Open Sans', sans-serif;
+      background: ${Colors.LightGray};
+  }
 
-    @media (min-width: 700px) {
-        #root {
-            font-size: 70%;
-        }
-    }
+  html, body, #root {
+      height: 100vh;
+  }
+
+  body,
+  input,
+  button,
+  textarea {
+      font: 500 1.6rem;
+  }
+
+  .container {
+    width: 90vw;
+    max-width: 700px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  @media (min-width: 700px) {
+      #root {
+          font-size: 70%;
+      }
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export default GlobalStyle;
