@@ -7,6 +7,7 @@ interface Props {
   imgUrl?: string;
   title?: string;
   desc?: string;
+  upvote?: string;
 }
 
 export const Card = (props: Props) => (
@@ -16,7 +17,7 @@ export const Card = (props: Props) => (
       <Title>{props.title}</Title>
       <Description>{props.desc}</Description>
     </About>
-    <Upvote />
+    <Upvote>{props.upvote}</Upvote>
   </CardContainer>
 )
 
@@ -69,7 +70,7 @@ const Upvote = styled.button`
   width: 7vh;
   height: 7vh;
   margin-right: -1em;
-  background: rgba(155, 155, 155, 0.2);
+  background: ${Colors.White};
   border-radius: 12px;
 `
 

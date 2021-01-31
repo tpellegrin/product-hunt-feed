@@ -72,6 +72,7 @@ function Posts(props: Props) {
                 title={post.name}
                 desc={post.tagline}
                 imgUrl={post.thumbnail.url}
+                upvote={post.votesCount}
               />
             </div>
           } else {
@@ -79,6 +80,7 @@ function Posts(props: Props) {
               title={post.name}
               desc={post.tagline}
               imgUrl={post.thumbnail.url}
+              upvote={post.votesCount}
             />
           }
         })}
